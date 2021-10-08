@@ -1,0 +1,19 @@
+#!/bin/bash
+
+################################################################################
+#Script Name    :script-daemon
+#Description    :Pause and continue scripts to bypass rate limiting by an
+#                arbitrary amount of time. Default runtime 1h and default
+#                downtime set to 24h. 
+################################################################################
+bash /usr/local/bin/script & 2>&1 || \
+python3 /usr/local/bin/script.py & 2>&1
+
+PID=$!
+echo "Process $PID started.."
+while ps -p $PID &> /dev/null; do
+    echo "Running $PID..." && sleep 1h
+    kill -TSTP $PID
+    echo "Sleeping $PID..." && sleep 24h
+    kill -SIGCONT $PID
+done
