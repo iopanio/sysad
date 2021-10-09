@@ -4,7 +4,7 @@
 #Script Name    :script-daemon
 #Description    :Pause and continue scripts to bypass rate limiting by an
 #                arbitrary amount of time.
-#Path       :/usr/bin/
+#Path           :/usr/bin/
 ################################################################################
 
 #Send script to background

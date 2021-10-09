@@ -2,6 +2,7 @@
 #Script Name    :script.service
 #Description    :Unit file to run script-daemon on startup.
 #Path           :/etc/systemd/system/
+#Usage          :$ systemctl daemon-reload && systemctl enable script.service
 ################################################################################
 
 [Unit]
