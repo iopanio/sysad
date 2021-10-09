@@ -1,0 +1,17 @@
+################################################################################
+#Script Name    :script.service
+#Description    :Unit file to run script-daemon on startup.
+#Path           :/etc/systemd/system/
+################################################################################
+
+[Unit]
+Description=script.service
+
+[Service]
+User=$USER
+WorkingDirectory=$HOME
+ExecStart=/bin/bash --login -c 'source $HOME/.bashrc; /usr/bin/script'
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
